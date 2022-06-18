@@ -55,8 +55,15 @@ function makeMovieList(movieObj) {
     title.innerHTML = movieObj.title
     title.href = movieObj.url
     image.src = movieObj.background_image
-    rank.innerHTML = `${movieObj.rating} / 10.0`
     parent.appendChild(title)
+    if (movieObj.rating <= 5) {
+        rank.style.color = "red"        
+    } else if (movieObj.rating < 8) {
+        rank.style.color = "#CCCC00"        
+    } else {
+        rank.style.color = "yellowgreen"        
+    }
+    rank.innerHTML = `${movieObj.rating} / 10.0`
     parent.appendChild(image)
     parent.appendChild(rank)
 }
