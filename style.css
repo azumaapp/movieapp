@@ -9,6 +9,8 @@
 .image {
     width: 350px;
     height: auto;
+    border-radius: 5px;
+    border: 1px solid gray;
 }
 .rank {
     font-size: 25px;
