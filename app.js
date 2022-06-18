@@ -55,8 +55,29 @@ function makeMovieList(movieObj) {
     title.innerHTML = movieObj.title
     title.href = movieObj.url
     image.src = movieObj.background_image
-    rank.innerHTML = `${movieObj.rating} / 10.0`
     parent.appendChild(title)
+
+    // 평점에 따라 색깔 스타일 변경
+    let ratingColor = changeRatingColor(movieObj.rating)
+    rank.style.color = ratingColor
+
+    // 평점 텍스트 렌더링
+    rank.innerHTML = `${movieObj.rating} / 10.0`
+    
     parent.appendChild(image)
     parent.appendChild(rank)
+}
+
+/**
+ * 평점에 따라 평점 텍스트 색깔을 바꿔준다.
+ * @param {rating}
+ */
+function changeRatingColor (rating) {
+    if (rating <= 5) {
+        return "red"    
+    } else if (rating < 8) {
+        return "#CCCC00"        
+    } else {
+        return "yellowgreen"        
+    }    
 }
